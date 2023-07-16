@@ -48,6 +48,7 @@ const BannerItems = () => {
 					fetchData(`/playlists/${id}`, token)
 						.then((res) => res)
 						.catch((err) => {
+							console.log(err);
 							setLoading(false);
 						})
 				)
@@ -70,10 +71,10 @@ const BannerItems = () => {
 					{data?.map((d) => (
 						<div
 							key={d?.id}
-							className='flex bg-black rounded-md overflow-hidden'
+							className='flex bg-white bg-opacity-10 rounded-[4px] overflow-hidden'
 						>
 							<img src={d.images[0].url} className='h-20 aspect-square' />
-							<div className='w-full opacity-80 flex items-center justify-between'>
+							<div className='w-full flex items-center justify-between'>
 								<div className='px-4 text-lg'> {d?.name} </div>
 							</div>
 						</div>
