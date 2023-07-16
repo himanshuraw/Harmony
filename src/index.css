@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+	--fallback-fonts: Helvetica Neue, helvetica, arial, Hiragino Kaku Gothic Pro,
+		Meiryo, MS Gothic;
+}
+
+body {
+	color: white;
+	font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+		CircularSp-Grek, CircularSp-Deva, var(--fallback-fonts, sans-serif),
+		sans-serif;
+}
+
+@layer utilities {
+	@variants responsive {
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+	}
+}
