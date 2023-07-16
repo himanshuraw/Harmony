@@ -36,7 +36,7 @@ function App() {
 			<div className='h-[89%] flex gap-2'>
 				<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-				<div className='grow overflow-scroll no-scrollbar block bg-[#121212] pt-2 px-6 rounded-lg'>
+				<div className='grow overflow-scroll no-scrollbar block bg-[#121212] pt-2 px-4 lg:px-6 rounded-lg'>
 					<Header />
 					<div className='mt-16'>
 						<Routes>
