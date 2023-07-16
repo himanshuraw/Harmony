@@ -76,6 +76,7 @@ const BannerItems = () => {
 							<img src={d.images[0].url} className='h-20 aspect-square' />
 							<div className='w-full flex items-center justify-between'>
 								<div className='px-4 text-lg'> {d?.name} </div>
+								<div></div>
 							</div>
 						</div>
 					))}
