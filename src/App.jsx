@@ -37,7 +37,9 @@ function App() {
 				<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
 				<div className='grow overflow-scroll no-scrollbar block bg-[#121212] pt-2 px-4 lg:px-6 rounded-lg'>
-					<Header />
+					<div className='fixed w-full'>
+						<Header />
+					</div>
 					<div className='mt-16'>
 						<Routes>
 							<Route path='/' element={<Auth />} />

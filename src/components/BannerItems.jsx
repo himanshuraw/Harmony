@@ -74,7 +74,7 @@ const BannerItems = () => {
 							className='flex bg-white bg-opacity-10 rounded-[4px] overflow-hidden'
 						>
 							<img
-								src={d.images[0].url}
+								src={d?.images[0]?.url}
 								className='h-16 lg:h-20 aspect-square'
 							/>
 							<div className='w-full flex items-center justify-between'>

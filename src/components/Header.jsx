@@ -1,10 +1,12 @@
+import { BsSearch } from 'react-icons/bs';
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
 	return (
-		<header className='fixed h-16 py-4 px-6 w-full bg-[#242424] bg-opacity-50 rounded-t-lg -mx-6 -mt-2'>
+		<header className='flex gap-2 items-center h-16 py-4 px-6  w-full bg-[#242424] bg-opacity-50 rounded-t-lg -mx-6 -mt-2'>
 			<div className='flex flex-row items-center gap-2'>
 				<div
 					className='bg-[#000000]  flex justify-center items-center h-8 w-8 rounded-full hover:cursor-pointer'
@@ -19,6 +21,19 @@ const Header = () => {
 					<MdArrowForwardIos size={16} color='#FFFFFF' />
 				</div>
 			</div>
+			{location.pathname !== '/search' ? (
+				<></>
+			) : (
+				<div className='w-[364px] relative'>
+					<input
+						placeholder='What do you want to listen to?'
+						className='bg-[#2a2a2a] shadow-md px-9 py-[6px] h-12 w-full rounded-full text-sm tracking-[0.012em]'
+					/>
+					<div className='flex items-center absolute top-0 left-3 h-12 '>
+						<BsSearch />
+					</div>
+				</div>
+			)}
 		</header>
 	);
 };
