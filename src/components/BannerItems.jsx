@@ -23,7 +23,7 @@ const BannerItems = () => {
 		];
 
 		if (token === '') {
-			navigate('auth');
+			navigate('/auth');
 		} else {
 			Promise.all(
 				playlist_ids.map((id) =>

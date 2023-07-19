@@ -1,0 +1,44 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchData } from '../utils/fetchData';
+import Card from '../components/Card';
+
+const Genre = () => {
+	const { id } = useParams();
+	const [playlists, setPlaylists] = useState();
+	const [loading, setLoading] = useState(true);
+	const { token } = useSelector((state) => state.user);
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (token === '') {
+			navigate('/auth');
+		} else {
+			setLoading(true);
+			fetchData(`/browse/categories/${id}/playlists`, token).then((data) => {
+				setPlaylists(data?.playlists?.items);
+				console.log(data?.playlists?.items);
+				setLoading(false);
+			});
+		}
+	}, []);
+
+	return (
+		<section>
+			<div>Genre {id} </div>
+			{loading ? (
+				<div>loading...</div>
+			) : (
+				<div className='grid grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6'>
+					{playlists?.map((playlist) => (
+						<div key={playlist?.id}>
+							<Card playlist={playlist} />
+						</div>
+					))}
+				</div>
+			)}
+		</section>
+	);
+};
+
+export default Genre;

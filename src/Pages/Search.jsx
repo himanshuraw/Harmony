@@ -30,6 +30,12 @@ const Search = () => {
 
 	const dispatch = useDispatch();
 
+	const func = () => {
+		fetchData('/browse/categories/toplists/playlists', token).then((data) => {
+			console.log(data);
+		});
+	};
+
 	useEffect(() => {
 		const params = {
 			limit: 50,
@@ -39,6 +45,7 @@ const Search = () => {
 			navigate('/auth');
 		} else {
 			fetchData('/browse/categories', token, params).then((data) => {
+				console.log(data);
 				dispatch(getCategories(data));
 				setLoading(false);
 			});
@@ -48,6 +55,7 @@ const Search = () => {
 	return (
 		<section className='flex flex-col'>
 			<div className='font-black text-xl mt-8 mb-4'>Browse all</div>
+			<button onClick={func}>Fetch data</button>
 			{loading === true ? (
 				<div>loading...</div>
 			) : (
@@ -58,6 +66,7 @@ const Search = () => {
 							<div
 								key={category?.id}
 								className={`rounded-lg ${color[random]} overflow-hidden aspect-square relative`}
+								onClick={() => navigate(`/genre/${category.id}`)}
 							>
 								<img
 									src={category?.icons[0]?.url}

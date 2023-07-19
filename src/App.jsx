@@ -9,6 +9,7 @@ import Sidebar from './components/Sidebar';
 import { useState } from 'react';
 import Auth from './Pages/Auth';
 import Header from './components/Header';
+import Genre from './Pages/Genre';
 function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -27,8 +28,9 @@ function App() {
 							<Route path='/' element={<Home />} />
 							<Route path='/search' element={<Search />} />
 							<Route path='/playlist/:playlist_id' element={<PlayList />} />
-							<Route path='/tracks/:id' element={<Track />} />
-							<Route path='/artists/:id' element={<Artist />} />
+							<Route path='/track/:id' element={<Track />} />
+							<Route path='/artist/:id' element={<Artist />} />
+							<Route path='/genre/:id' element={<Genre />} />
 						</Routes>
 					</div>
 				</div>
