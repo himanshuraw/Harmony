@@ -29,7 +29,7 @@ const Genre = () => {
 			{loading ? (
 				<div>loading...</div>
 			) : (
-				<div className='grid grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6'>
+				<div className='grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6'>
 					{playlists?.map((playlist) => (
 						<div key={playlist?.id}>
 							<Card playlist={playlist} />

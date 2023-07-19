@@ -30,12 +30,6 @@ const Search = () => {
 
 	const dispatch = useDispatch();
 
-	const func = () => {
-		fetchData('/browse/categories/toplists/playlists', token).then((data) => {
-			console.log(data);
-		});
-	};
-
 	useEffect(() => {
 		const params = {
 			limit: 50,
@@ -55,7 +49,6 @@ const Search = () => {
 	return (
 		<section className='flex flex-col'>
 			<div className='font-black text-xl mt-8 mb-4'>Browse all</div>
-			<button onClick={func}>Fetch data</button>
 			{loading === true ? (
 				<div>loading...</div>
 			) : (

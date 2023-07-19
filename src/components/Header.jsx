@@ -6,7 +6,7 @@ const Header = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	return (
-		<header className='flex gap-2 items-center h-16 py-4 px-6  w-full bg-[#242424] bg-opacity-50 rounded-t-lg -mx-4 -mt-2'>
+		<header className='flex gap-2 items-center h-16 py-4 px-6  w-full bg-[#242424] bg-opacity-50 rounded-t-lg -mx-4 lg:-mx-6 -mt-2'>
 			<div className='flex flex-row items-center gap-2'>
 				<div
 					className='bg-[#000000]  flex justify-center items-center h-8 w-8 rounded-full hover:cursor-pointer'
