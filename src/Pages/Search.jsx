@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAuth } from '../utils/getAuth';
-import { getToken } from '../store/userSlice';
 import { fetchData } from '../utils/fetchData';
 import { getCategories } from '../store/searchSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
 	const [loading, setLoading] = useState(true);
 	const { categories } = useSelector((state) => state.search);
 	const { token } = useSelector((state) => state.user);
+	const navigate = useNavigate();
 	const color = [
 		'bg-[#E8115B]',
 		'bg-[#E13300]',
@@ -36,13 +36,7 @@ const Search = () => {
 		};
 		setLoading(true);
 		if (token === '') {
-			getAuth().then((result) => {
-				dispatch(getToken(result));
-				fetchData('/browse/categories', result, params).then((data) => {
-					dispatch(getCategories(data));
-					setLoading(false);
-				});
-			});
+			navigate('/auth');
 		} else {
 			fetchData('/browse/categories', token, params).then((data) => {
 				dispatch(getCategories(data));

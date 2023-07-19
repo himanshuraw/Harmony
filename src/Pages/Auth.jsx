@@ -12,7 +12,7 @@ const Auth = () => {
 			.then((result) => {
 				dispatch(getToken(result));
 			})
-			.then(() => navigate('/'));
+			.then(() => navigate(-1) || navigate('/'));
 	}, []);
 	return (
 		<>
