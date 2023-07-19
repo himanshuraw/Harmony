@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 					isOpen ? '' : 'items-center'
 				}`}
 			>
-				<Tab Icon={GoHomeFill} Title='Home' isOpen={isOpen} to='home' />
+				<Tab Icon={GoHomeFill} Title='Home' isOpen={isOpen} to='' />
 				<Tab Icon={BsSearch} Title='Search' isOpen={isOpen} to='search' />
 			</ul>
 			<div

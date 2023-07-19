@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAuth } from '../utils/getAuth';
-import { getToken } from '../store/userSlice';
+import { useSelector } from 'react-redux';
 import { fetchData } from '../utils/fetchData';
+import { useNavigate } from 'react-router-dom';
 
 const BannerItems = () => {
 	const { token } = useSelector((state) => state.user);
 	const [loading, setLoading] = useState(true);
-
-	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const [data, setData] = useState([]);
 
@@ -25,23 +23,7 @@ const BannerItems = () => {
 		];
 
 		if (token === '') {
-			getAuth().then((result) => {
-				dispatch(getToken(result));
-
-				Promise.all(
-					playlist_ids.map((id) =>
-						fetchData(`/playlists/${id}`, result)
-							.then((res) => res)
-							.catch((err) => {
-								setLoading(false);
-								console.log(err);
-							})
-					)
-				).then((res) => {
-					setData(res);
-					setLoading(false);
-				});
-			});
+			navigate('auth');
 		} else {
 			Promise.all(
 				playlist_ids.map((id) =>
