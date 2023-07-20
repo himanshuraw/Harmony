@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { fetchData } from '../utils/fetchData';
 import { useNavigate } from 'react-router-dom';
+import Image from './Image';
 
 const BannerItems = () => {
 	const { token } = useSelector((state) => state.user);
@@ -55,10 +56,9 @@ const BannerItems = () => {
 							key={d?.id}
 							className='flex bg-white bg-opacity-10 rounded-[4px] overflow-hidden'
 						>
-							<img
-								src={d?.images[0]?.url}
-								className='h-16 lg:h-20 aspect-square'
-							/>
+							<div className='h-16 lg:h-20 aspect-square'>
+								<Image src={d?.images[0]?.url} />
+							</div>
 							<div className='w-full flex items-center justify-between'>
 								<div className='px-4 text-lg'> {d?.name} </div>
 								<div></div>

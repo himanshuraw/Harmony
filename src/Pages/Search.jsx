@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../utils/fetchData';
 import { getCategories } from '../store/searchSlice';
 import { useNavigate } from 'react-router-dom';
+import Image from '../components/Image';
 
 const Search = () => {
 	const [loading, setLoading] = useState(true);
@@ -61,8 +62,7 @@ const Search = () => {
 								className={`rounded-lg ${color[random]} overflow-hidden aspect-square relative`}
 								onClick={() => navigate(`/genre/${category.id}`)}
 							>
-								<img
-									src={category?.icons[0]?.url}
+								<div
 									style={{
 										position: 'absolute',
 										bottom: 0,
@@ -70,7 +70,9 @@ const Search = () => {
 										transform: 'rotate(24deg) translate(18%, -2%)',
 									}}
 									className='w-[100px] aspect-square'
-								/>
+								>
+									<Image src={category?.icons[0]?.url} />
+								</div>
 								<span className='absolute p-4 top-0 left-0 text-xs sm:text-base md:text-lg  lg:text-xl font-black'>
 									{category?.name}
 								</span>
