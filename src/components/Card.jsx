@@ -2,7 +2,7 @@ import Image from './Image';
 
 const Card = ({ playlist }) => {
 	return (
-		<div className='p-4 bg-[#181818] rounded-lg'>
+		<div className='p-4 bg-[#181818] rounded-lg cursor-pointer'>
 			<div>
 				<div className='mb-4 rounded-md shadow-lg'>
 					<Image src={playlist?.images[0]?.url} />

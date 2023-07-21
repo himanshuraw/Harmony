@@ -16,7 +16,7 @@ const Auth = () => {
 	}, []);
 	return (
 		<>
-			<div className='flex justify-center items-center text-white'>
+			<div className='flex justify-center items-center text-white pt-2 px-4 lg:px-6  mt-16'>
 				<h1>Authenticating and generating token</h1>
 			</div>
 		</>

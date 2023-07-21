@@ -13,9 +13,9 @@ const Home = () => {
 		}
 	}, []);
 	return (
-		<>
+		<section className='mt-16 pt-2 px-4 lg:px-6 '>
 			<Banner />
-		</>
+		</section>
 	);
 };
 

@@ -18,21 +18,19 @@ function App() {
 			<div className='h-[89%] flex gap-2'>
 				<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-				<div className='grow overflow-scroll no-scrollbar block bg-[#121212] pt-2 px-4 lg:px-6 rounded-lg'>
-					<div className='fixed w-full'>
+				<div className='grow overflow-scroll no-scrollbar block bg-[#121212] rounded-lg'>
+					<div className='fixed z-10 w-[100%] pr-24'>
 						<Header />
 					</div>
-					<div className='mt-16'>
-						<Routes>
-							<Route path='/auth' element={<Auth />} />
-							<Route path='/' element={<Home />} />
-							<Route path='/search' element={<Search />} />
-							<Route path='/playlist/:playlist_id' element={<PlayList />} />
-							<Route path='/track/:id' element={<Track />} />
-							<Route path='/artist/:id' element={<Artist />} />
-							<Route path='/genre/:id' element={<Genre />} />
-						</Routes>
-					</div>
+					<Routes>
+						<Route path='/auth' element={<Auth />} />
+						<Route path='/' element={<Home />} />
+						<Route path='/search' element={<Search />} />
+						<Route path='/playlist/:id' element={<PlayList />} />
+						<Route path='/track/:id' element={<Track />} />
+						<Route path='/artist/:id' element={<Artist />} />
+						<Route path='/genre/:id' element={<Genre />} />
+					</Routes>
 				</div>
 			</div>
 		</div>

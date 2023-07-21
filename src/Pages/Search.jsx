@@ -48,7 +48,7 @@ const Search = () => {
 	}, []);
 
 	return (
-		<section className='flex flex-col'>
+		<section className='flex flex-col mt-16 pt-2 px-4 lg:px-6 '>
 			<div className='font-black text-xl mt-8 mb-4'>Browse all</div>
 			{loading === true ? (
 				<div>loading...</div>
@@ -59,7 +59,7 @@ const Search = () => {
 						return (
 							<div
 								key={category?.id}
-								className={`rounded-lg ${color[random]} overflow-hidden aspect-square relative`}
+								className={`rounded-lg ${color[random]} overflow-hidden aspect-square relative cursor-pointer`}
 								onClick={() => navigate(`/genre/${category.id}`)}
 							>
 								<div

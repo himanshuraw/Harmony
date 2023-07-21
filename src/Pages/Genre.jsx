@@ -17,21 +17,24 @@ const Genre = () => {
 			setLoading(true);
 			fetchData(`/browse/categories/${id}/playlists`, token).then((data) => {
 				setPlaylists(data?.playlists?.items);
-				console.log(data?.playlists?.items);
+				// console.log(data?.playlists?.items);
 				setLoading(false);
 			});
 		}
 	}, []);
 
 	return (
-		<section>
+		<section className='mt-16 pt-2 px-4 lg:px-6 '>
 			<div>Genre {id} </div>
 			{loading ? (
 				<div>loading...</div>
 			) : (
 				<div className='grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6'>
 					{playlists?.map((playlist) => (
-						<div key={playlist?.id}>
+						<div
+							key={playlist?.id}
+							onClick={() => navigate(`/playlist/${playlist.id}`)}
+						>
 							<Card playlist={playlist} />
 						</div>
 					))}
