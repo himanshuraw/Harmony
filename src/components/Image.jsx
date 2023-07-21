@@ -11,7 +11,11 @@ const Image = ({ src }) => {
 
 	useIntersection(ref, callback);
 
-	return <div ref={ref}>{isInView && <img src={src} />}</div>;
+	return (
+		<div ref={ref}>
+			{isInView && <img src={src} className='w-full aspect-square ' />}{' '}
+		</div>
+	);
 };
 
 export default Image;
