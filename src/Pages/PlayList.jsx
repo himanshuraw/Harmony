@@ -58,7 +58,11 @@ const PlayList = () => {
 						<div className='mr-6 aspect-square w-48 lg:w-[232px] self-end shadow-lg shadow-[#363636] '>
 							<Image src={playlist?.images[0]?.url} />
 						</div>
-						<div>PlayList {id}</div>
+						<div className='flex flex-col justify-end '>
+							<div>{playlist?.type}</div>
+							<div className='text-8xl font-black'>{playlist?.name}</div>
+							<div>{playlist?.description}</div>
+						</div>
 					</div>
 					<div className='relative '>
 						<div
@@ -78,7 +82,11 @@ const PlayList = () => {
 								<div className=''>
 									{playlist?.tracks?.items?.map((item, i) => (
 										<div key={item?.track.id}>
-											<SongRow track={item?.track} i={i++ + 1} />
+											<SongRow
+												track={item?.track}
+												i={i++ + 1}
+												date={item.added_at}
+											/>
 										</div>
 									))}
 								</div>

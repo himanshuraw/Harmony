@@ -1,6 +1,6 @@
 import Image from './Image';
 
-const SongRow = ({ track, i }) => {
+const SongRow = ({ track, i, date }) => {
 	const duration_min = Math.floor(track?.duration_ms / 60000);
 	const duration_sec = Math.floor((track?.duration_ms / 1000) % 60);
 	const time = `${duration_min} : ${
@@ -23,7 +23,7 @@ const SongRow = ({ track, i }) => {
 			<div className=' line-clamp-1 text-ellipsis whitespace-normal mb-8'>
 				{track?.album?.name}
 			</div>
-			<div></div>
+			<div>{date?.slice(0, 9)}</div>
 			<div>{time}</div>
 		</div>
 	);
