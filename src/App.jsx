@@ -10,7 +10,7 @@ import { useState } from 'react';
 import Auth from './Pages/Auth';
 import Header from './components/Header';
 import Genre from './Pages/Genre';
-import SearchResult from './components/SearchResult';
+import SearchResult from './Pages/SearchResult';
 function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchData } from '../utils/fetchData';
-import Card from '../components/Card';
+import PlaylistCard from '../components/PlaylistCard';
 
 const Genre = () => {
 	const { id } = useParams();
@@ -35,7 +35,7 @@ const Genre = () => {
 							key={playlist?.id}
 							onClick={() => navigate(`/playlist/${playlist.id}`)}
 						>
-							<Card playlist={playlist} />
+							<PlaylistCard playlist={playlist} />
 						</div>
 					))}
 				</div>
