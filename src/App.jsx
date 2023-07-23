@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Auth from './Pages/Auth';
 import Header from './components/Header';
 import Genre from './Pages/Genre';
+import SearchResult from './components/SearchResult';
 function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -26,6 +27,7 @@ function App() {
 						<Route path='/auth' element={<Auth />} />
 						<Route path='/' element={<Home />} />
 						<Route path='/search' element={<Search />} />
+						<Route path='/search/:q' element={<SearchResult />} />
 						<Route path='/playlist/:id' element={<PlayList />} />
 						<Route path='/track/:id' element={<Track />} />
 						<Route path='/artist/:id' element={<Artist />} />
