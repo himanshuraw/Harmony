@@ -13,7 +13,7 @@ const color = [
 	'bg-[#056952]',
 	'bg-[#B02897]',
 	'bg-[#A56752]',
-	'bg-[#777777]',
+	'bg-[#C02008]',
 	'bg-[#537AA1]',
 	'bg-[#8D67AB]',
 	'bg-[#14B708]',
@@ -55,13 +55,20 @@ const PlayList = () => {
 						className={`flex overflow-hidden relative px-6 pb-6 ${color[random]}`}
 						style={{ height: `clamp(340px, 30vh, 400px)` }}
 					>
-						<div className='mr-6 aspect-square w-48 lg:w-[232px] self-end shadow-lg shadow-[#363636] '>
+						<div className='mr-6 aspect-square w-48 xl:w-[232px] self-end shadow-lg shadow-[#363636] '>
 							<Image src={playlist?.images[0]?.url} />
 						</div>
 						<div className='flex flex-col justify-end '>
 							<div>{playlist?.type}</div>
-							<div className='text-8xl font-black'>{playlist?.name}</div>
-							<div>{playlist?.description}</div>
+							<div className='text-8xl font-black mt-2'>
+								<h1 className='pt-[0.08em] pb-[0.12em]'>{playlist?.name}</h1>
+							</div>
+							<div className='text-sm font-medium opacity-70'>
+								{playlist?.description}
+							</div>
+							<div className='flex mt-2 text-sm font-normal'>
+								<div>{playlist?.tracks?.total} songs</div>
+							</div>
 						</div>
 					</div>
 					<div className='relative '>
