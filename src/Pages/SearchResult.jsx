@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../utils/fetchData';
 import { useSelector } from 'react-redux';
-import ArtistCard from '../components/ArtistCard';
+import ContentRow from '../components/ContentRow';
 
 const type = 'album,artist,playlist,track';
 
@@ -25,19 +25,25 @@ const SearchResult = () => {
 	}, [q]);
 	return (
 		<section className='m-16'>
-			<div>SearchResult {q}</div>
 			{loading ? (
 				<div>loading...</div>
 			) : (
 				<div>
-					<div>Artist</div>
-					<div className='grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6'>
-						{data?.artists?.items?.map((item) => (
-							<div key={item.id}>
-								<ArtistCard artist={item} />
-							</div>
-						))}
-					</div>
+					<ContentRow
+						items={data?.artists?.items?.slice(0, 7)}
+						type='Artist'
+						title='Artist'
+					/>
+					<ContentRow
+						items={data?.albums?.items?.slice(0, 7)}
+						type='Album'
+						title='Album'
+					/>
+					<ContentRow
+						items={data?.playlists?.items?.slice(0, 7)}
+						type='Playlist'
+						title='Playlist'
+					/>
 				</div>
 			)}
 		</section>
