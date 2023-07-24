@@ -16,11 +16,15 @@ const Card = ({ name, img, description, isCircle }) => {
 					<div className='mb-1 font-semibold line-clamp-1 text-ellipsis whitespace-normal'>
 						{name}
 					</div>
-					<div className='text-sm  text-[#a7a7a7] lg:font-normal'>
-						<div className='line-clamp-2 text-ellipsis whitespace-normal'>
-							{description}
+					{description == '' ? (
+						<div className='h-10' />
+					) : (
+						<div className='text-sm  text-[#a7a7a7] lg:font-normal'>
+							<div className='line-clamp-2 text-ellipsis whitespace-normal'>
+								{description}
+							</div>
 						</div>
-					</div>
+					)}
 				</div>
 			</div>
 		</div>
