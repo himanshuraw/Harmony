@@ -12,7 +12,7 @@ const ContentRow = ({ items, type, title }) => {
 				className='grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 overflow-hidden'
 				style={{ gridTemplateRows: `1fr 0px` }}
 			>
-				{items?.map((item) => (
+				{items?.slice(0, 7)?.map((item) => (
 					<div key={item.id}>
 						{type === 'Playlist' ? (
 							<PlaylistCard playlist={item} />

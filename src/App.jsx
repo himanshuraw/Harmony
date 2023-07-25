@@ -11,6 +11,7 @@ import Auth from './Pages/Auth';
 import Header from './components/Header';
 import Genre from './Pages/Genre';
 import SearchResult from './Pages/SearchResult';
+import Album from './Pages/Album';
 function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -29,6 +30,7 @@ function App() {
 						<Route path='/search' element={<Search />} />
 						<Route path='/search/:q' element={<SearchResult />} />
 						<Route path='/playlist/:id' element={<PlayList />} />
+						<Route path='/album/:id' element={<Album />} />
 						<Route path='/track/:id' element={<Track />} />
 						<Route path='/artist/:id' element={<Artist />} />
 						<Route path='/genre/:id' element={<Genre />} />
