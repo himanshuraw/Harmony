@@ -1,11 +1,11 @@
 import BannerItems from './BannerItems';
 import Greeting from './Greeting';
 
-const Banner = () => {
+const Banner = ({ data }) => {
 	return (
 		<div className='mb-4'>
 			<Greeting />
-			<BannerItems />
+			<BannerItems data={data} />
 		</div>
 	);
 };

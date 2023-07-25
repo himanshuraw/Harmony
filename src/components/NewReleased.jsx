@@ -1,37 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { fetchData } from '../utils/fetchData';
+// import { useEffect, useState } from 'react';
+
 import ContentRow from './ContentRow';
 
-const NewReleased = () => {
-	const { token } = useSelector((state) => state.user);
-	const navigate = useNavigate();
-	const [data, setData] = useState();
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		setLoading(true);
-		if (token === '') {
-			navigate(`/auth`);
-		} else {
-			fetchData(`/browse/new-releases`, token).then((data) => {
-				setData(data);
-				setLoading(false);
-			});
-		}
-	}, []);
+const NewReleased = ({ data }) => {
 	return (
 		<section className='mb-4'>
-			{loading ? (
-				<div>loading...</div>
-			) : (
-				<ContentRow
-					items={data?.albums?.items}
-					title={`New Released`}
-					type={`Album`}
-				/>
-			)}
+			<ContentRow
+				items={data?.albums?.items}
+				title={`New Released`}
+				type={`Album`}
+			/>
 		</section>
 	);
 };
