@@ -12,7 +12,6 @@ const NewReleased = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		console.log('newReleased');
 		if (token === '') {
 			navigate(`/auth`);
 		} else {

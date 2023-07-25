@@ -7,14 +7,6 @@ import NewReleased from '../components/NewReleased';
 import ByArtist from '../components/ByArtist';
 
 const Home = () => {
-	const { token } = useSelector((state) => state.user);
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (token === '') {
-			navigate('auth');
-		}
-	}, [navigate, token]);
 	return (
 		<section className='mt-16 lg:px-6 '>
 			<div className='pt-2 '>

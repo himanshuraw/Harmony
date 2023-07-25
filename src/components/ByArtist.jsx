@@ -23,7 +23,6 @@ const ByArtist = () => {
 	const [artist, setArtist] = useState();
 
 	useEffect(() => {
-		console.log('artist');
 		const random = Math.floor(Math.random() * artistArray.length);
 		const artist = artistArray[random];
 		setArtist(artist);

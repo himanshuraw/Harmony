@@ -12,7 +12,6 @@ const Featured = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		console.log('featured');
 		if (token === '') {
 			navigate(`/auth`);
 		} else {
