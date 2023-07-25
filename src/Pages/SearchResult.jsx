@@ -30,17 +30,13 @@ const SearchResult = () => {
 			) : (
 				<div>
 					<ContentRow
-						items={data?.artists?.items?.slice(0, 7)}
+						items={data?.artists?.items}
 						type='Artist'
 						title='Artist'
 					/>
+					<ContentRow items={data?.albums?.items} type='Album' title='Album' />
 					<ContentRow
-						items={data?.albums?.items?.slice(0, 7)}
-						type='Album'
-						title='Album'
-					/>
-					<ContentRow
-						items={data?.playlists?.items?.slice(0, 7)}
+						items={data?.playlists?.items}
 						type='Playlist'
 						title='Playlist'
 					/>

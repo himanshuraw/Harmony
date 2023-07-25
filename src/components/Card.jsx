@@ -1,8 +1,11 @@
 import Image from './Image';
 
-const Card = ({ name, img, description, isCircle }) => {
+const Card = ({ name, img, description, isCircle, onclick }) => {
 	return (
-		<div className='p-4 bg-[#181818] rounded-lg cursor-pointer'>
+		<div
+			className='p-4 bg-[#181818] rounded-lg cursor-pointer'
+			onClick={onclick}
+		>
 			<div>
 				<div
 					className={`mb-4 ${
