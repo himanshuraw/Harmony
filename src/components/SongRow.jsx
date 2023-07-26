@@ -11,9 +11,11 @@ const SongRow = ({ track, i, date }) => {
 		<div className='grid grid-cols-[16px_6fr_4fr_3fr_minmax(120px,1fr)] grid-rows-1 gap-4 px-4 h-14  text-[#b3b3b3]'>
 			<div>{i}</div>
 			<div className='flex'>
-				<div className='w-10 aspect-square mr-4'>
-					<Image src={track?.album?.images[2]?.url} />
-				</div>
+				{track?.album ? (
+					<div className='w-10 aspect-square mr-4'>
+						<Image src={track?.album?.images[2]?.url} />
+					</div>
+				) : null}
 				<div>
 					<div className=' line-clamp-1 text-ellipsis whitespace-normal mb-8'>
 						{track?.name}

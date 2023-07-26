@@ -17,7 +17,6 @@ const Genre = () => {
 			setLoading(true);
 			fetchData(`/browse/categories/${id}/playlists`, token).then((data) => {
 				setPlaylists(data?.playlists?.items);
-				// console.log(data?.playlists?.items);
 				setLoading(false);
 			});
 		}

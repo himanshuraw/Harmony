@@ -46,7 +46,7 @@ const PlayList = () => {
 		}
 	}, []);
 	return (
-		<section className=''>
+		<section>
 			{loading ? (
 				<div>loading...</div>
 			) : (
