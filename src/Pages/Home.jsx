@@ -34,6 +34,7 @@ const Home = () => {
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState();
 	const [artist, setArtist] = useState();
+	const [artist2, setArtist2] = useState();
 
 	useEffect(() => {
 		setLoading(true);
@@ -42,7 +43,9 @@ const Home = () => {
 		} else {
 			const random = Math.floor(Math.random() * artistArray.length);
 			const artist = artistArray[random];
+			const artist2 = artistArray[(random + 1) % artistArray.length];
 			setArtist(artist);
+			setArtist2(artist2);
 			Promise.all([
 				Promise.all(
 					playlist_ids.map((id) => fetchData(`/playlists/${id}`, token))
@@ -50,6 +53,7 @@ const Home = () => {
 				fetchData(`/browse/featured-playlists`, token),
 				fetchData(`/browse/new-releases`, token),
 				fetchData(`/artists/${artist.id}/albums`, token),
+				fetchData(`/artists/${artist2.id}/albums`, token),
 			]).then((data) => {
 				console.log(data);
 				setData(data);
@@ -69,6 +73,7 @@ const Home = () => {
 						<Featured data={data[1]} />
 						<NewReleased data={data[2]} />
 						<ByArtist data={data[3]} artist={artist} />
+						<ByArtist data={data[4]} artist={artist2} />
 					</div>
 				)}
 			</div>
