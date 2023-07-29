@@ -24,8 +24,6 @@ const Artist = () => {
 			fetchData(`/artists/${id}/related-artists`, token),
 			fetchData(`/artists/${id}/top-tracks`, token, { market: 'US' }),
 		]).then((data) => {
-			console.log(data);
-
 			setData(data);
 			setLoading(false);
 		});
