@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import Image from './Image';
 
 const TopResult = ({ data }) => {
+	const navigate = useNavigate();
 	return (
 		<div className='flex flex-col bg-[#181818] gap-5 p-5 rounded-lg'>
 			<div className='w-[92px] pb-[92px] aspect-square rounded-md overflow-hidden'>
@@ -12,7 +14,11 @@ const TopResult = ({ data }) => {
 				</div>
 				<div className='text-[#b3b3b3] text-sm flex'>
 					{data?.artists?.slice(0, 3)?.map((artist, i) => (
-						<div key={artist.id}>
+						<div
+							key={artist.id}
+							className='cursor-pointer'
+							onClick={() => navigate(`/artist/${artist?.id}`)}
+						>
 							{artist.name}
 							{i !== data?.artists?.length - 1 ? ',' : ''}
 						</div>
