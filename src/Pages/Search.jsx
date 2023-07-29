@@ -40,7 +40,6 @@ const Search = () => {
 			navigate('/auth');
 		} else {
 			fetchData('/browse/categories', token, params).then((data) => {
-				console.log(data);
 				dispatch(getCategories(data));
 				setLoading(false);
 			});
