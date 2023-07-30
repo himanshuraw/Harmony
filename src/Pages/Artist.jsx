@@ -5,6 +5,10 @@ import { fetchData } from '../utils/fetchData';
 import ContentRow from '../components/ContentRow';
 import SongRow from '../components/SongRow';
 
+const Loading = () => {
+	return <div>loading...</div>;
+};
+
 const Artist = () => {
 	const { id } = useParams();
 	const { token } = useSelector((state) => state.user);
@@ -31,7 +35,7 @@ const Artist = () => {
 	return (
 		<div className='relative'>
 			{loading ? (
-				<div>loading...</div>
+				<Loading />
 			) : (
 				<>
 					<div
