@@ -31,7 +31,7 @@ const Artist = () => {
 			setData(data);
 			setLoading(false);
 		});
-	}, []);
+	}, [id]);
 	return (
 		<div className='relative'>
 			{loading ? (
