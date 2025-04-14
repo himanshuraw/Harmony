@@ -7,16 +7,12 @@ const Header = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const debounce = (handleSearch, delay) => {
+	const debounce = (fn, delay) => {
 		let timer;
 		return (...args) => {
-			const context = this;
-			if (timer) {
-				clearTimeout(timer);
-			}
+			clearTimeout(timer);
 			timer = setTimeout(() => {
-				timer = null;
-				handleSearch.apply(context, args);
+				fn(...args);
 			}, delay);
 		};
 	};
